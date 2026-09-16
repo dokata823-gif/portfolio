@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -53,7 +53,7 @@
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.5;
-      padding-bottom: 90px;
+      padding-bottom: 95px;
       min-height: 100vh;
       transition: background-color 0.2s ease, color 0.2s ease;
     }
@@ -116,101 +116,44 @@
       background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
       color: #ffffff;
       border-radius: var(--radius-md);
-      padding: 18px;
+      padding: 16px;
       margin-bottom: 16px;
       box-shadow: var(--shadow);
     }
 
     .banner-title {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.8px;
       opacity: 0.9;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .banner-quote {
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       font-weight: 800;
-      line-height: 1.45;
-      margin-bottom: 10px;
+      line-height: 1.4;
+      margin-bottom: 8px;
     }
 
     .banner-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 5px;
     }
 
     .tag {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       background: rgba(255, 255, 255, 0.2);
-      padding: 3px 8px;
-      border-radius: 12px;
-      font-weight: 600;
-    }
-
-    /* Today's Review Card */
-    .today-review-card {
-      background: var(--surface);
-      border: 1px solid var(--primary);
-      border-left: 5px solid var(--primary);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      margin-bottom: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .today-review-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 8px;
-    }
-
-    .today-review-title {
-      font-size: 0.92rem;
-      font-weight: 800;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .today-review-date {
-      font-size: 0.72rem;
-      color: var(--primary);
-      font-weight: 700;
-      background: var(--primary-light);
-      padding: 2px 8px;
+      padding: 2px 7px;
       border-radius: 10px;
-    }
-
-    .today-review-content {
-      font-size: 0.85rem;
-      line-height: 1.6;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-
-    .today-review-summary {
-      background: var(--surface-card);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-      font-size: 0.8rem;
-      line-height: 1.5;
-    }
-
-    .today-review-summary strong {
-      color: var(--accent-success);
+      font-weight: 600;
     }
 
     .tab-section {
       display: none;
-      animation: fadeIn 0.25s ease forwards;
+      animation: fadeIn 0.2s ease forwards;
     }
 
     .tab-section.active {
@@ -218,7 +161,7 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -227,12 +170,12 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     .section-title {
       font-size: 1.05rem;
-      font-weight: 700;
+      font-weight: 800;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -303,6 +246,69 @@
 
     .rule-list li.warn::before { color: var(--accent-danger); }
     .rule-list li.strong { font-weight: 600; }
+
+    /* Case & Log Card Styles */
+    .record-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .record-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .record-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .record-date {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .record-body {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .record-box {
+      background: var(--surface-card);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 36px 16px;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-md);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    .empty-state .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      display: block;
+      opacity: 0.7;
+    }
 
     /* Interactive Checklist */
     .check-item {
@@ -376,30 +382,26 @@
       margin-top: 12px;
     }
 
-    .btn-action:active {
-      background: var(--border);
-    }
-
-    /* Bottom Navigation */
+    /* Bottom Navigation (5 Tabs) */
     nav.bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(30, 41, 59, 0.92);
+      background: rgba(30, 41, 59, 0.94);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-around;
-      padding: 8px 6px;
+      padding: 8px 4px;
       max-width: 540px;
       margin: 0 auto;
     }
 
     [data-theme="light"] nav.bottom-nav {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
     }
 
     .nav-tab {
@@ -409,14 +411,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
-      font-size: 0.76rem;
+      gap: 2px;
+      font-size: 0.68rem;
       font-weight: 600;
       cursor: pointer;
-      padding: 6px 20px;
+      padding: 4px 6px;
       border-radius: 8px;
       transition: all 0.2s ease;
-      width: 48%;
+      flex: 1;
+      text-align: center;
     }
 
     .nav-tab.active {
@@ -425,7 +428,7 @@
     }
 
     .nav-tab .icon {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
   </style>
 </head>
@@ -435,7 +438,7 @@
   <header>
     <div class="logo-box">
       <h1>🏛️ 실전 투자 판단 시스템</h1>
-      <p>현금 확보 중심 & 원칙 준수 프레임워크</p>
+      <p>원칙 거버넌스 & 사례 관리 플랫폼</p>
     </div>
     <div class="header-actions">
       <button class="theme-toggle-btn" onclick="toggleTheme()">🌓 테마</button>
@@ -456,28 +459,7 @@
       </div>
     </div>
 
-    <!-- Case Study Card #001 -->
-    <div class="today-review-card">
-      <div class="today-review-head">
-        <div class="today-review-title">
-          <span>📋</span>
-          <span>투자 사례 #001: 양자컴퓨팅 (IonQ / IBM)</span>
-        </div>
-        <span class="today-review-date">원칙 준수 사례 (2026-09-16)</span>
-      </div>
-      <div class="today-review-content">
-        투자를 다 알고 하지는 않는다. 현재 알고 있는 사항에 맞춰서 하는 것도 있지만, 모든 걸 고려한다고 해서 모든 사항이 대비되지는 않는다. 
-        <br><br>
-        결론은 <strong>IonQ</strong>에 투자할지 <strong>IBM</strong>에 투자할지 모르지만, 확률적으로 다양한 양자컴퓨터 회사 중에서 <strong>선두주자로 일단 치고 나가는 상황이고 실제 매출을 내고 있기 때문에</strong> 투자를 한 것이다.
-        <br><br>
-        장기로 끌고 가기보다는 <strong>원금 회수를 1차 목표</strong>로 하고, 상황이 바뀐다면 추가 투자를 고려하겠지만 <strong>원금 회수 이후에는 수익금에서만 운용</strong>할 계획이다.
-      </div>
-      <div class="today-review-summary">
-        💡 <strong>원칙 검증 완료 (대치 없음)</strong>: 불확실성을 인정하고 실적 선두주자에 확률 배팅 $\rightarrow$ 장기 맹신 배제 및 <strong>원금 회수 후 순수 수익금으로만 무위험 운용</strong>.
-      </div>
-    </div>
-
-    <!-- TAB 1: 실전 투자 룰 엔진 -->
+    <!-- PAGE 1: 실전 투자 룰 엔진 -->
     <section id="tab-rules" class="tab-section active">
       <div class="section-header">
         <div class="section-title">⚡ 4대 핵심 투자 룰 엔진</div>
@@ -538,7 +520,7 @@
       </div>
     </section>
 
-    <!-- TAB 2: 실전 자가 점검 체크리스트 -->
+    <!-- PAGE 2: 실전 자가 점검 체크리스트 -->
     <section id="tab-check" class="tab-section">
       <div class="section-header">
         <div class="section-title">🎯 실전 매매 즉시 자가 점검표</div>
@@ -590,9 +572,78 @@
       <button class="btn-action" onclick="resetChecks()">체크리스트 초기화</button>
     </section>
 
+    <!-- PAGE 3: 투자 사례 (Case Studies) -->
+    <section id="tab-cases" class="tab-section">
+      <div class="section-header">
+        <div class="section-title">📚 투자 사례 페이지 (Case Studies)</div>
+      </div>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">
+        기존 투자 원칙에 부합하여 성공적으로 집행된 표준 투자 사례 목록입니다.
+      </p>
+
+      <!-- Case #001 -->
+      <div class="record-card" style="border-left: 4px solid var(--accent-success);">
+        <div class="record-head">
+          <div class="record-title">📋 Case #001: 양자컴퓨팅 (IonQ / IBM)</div>
+          <span class="badge badge-success">원칙 준수</span>
+        </div>
+        <div class="record-body">
+          투자를 다 알고 하지는 않는다. 현재 알고 있는 사항에 맞춰서 하는 것도 있지만, 모든 걸 고려한다고 해서 모든 사항이 대비되지는 않는다. 
+          <br><br>
+          결론은 <strong>IonQ</strong>에 투자할지 <strong>IBM</strong>에 투자할지 모르지만, 확률적으로 다양한 양자컴퓨터 회사 중에서 <strong>선두주자로 일단 치고 나가는 상황이고 실제 매출을 내고 있기 때문에</strong> 투자를 한 것이다.
+          <br><br>
+          장기로 끌고 가기보다는 <strong>원금 회수를 1차 목표</strong>로 하고, 상황이 바뀐다면 추가 투자를 고려하겠지만 <strong>원금 회수 이후에는 수익금에서만 운용</strong>할 계획이다.
+        </div>
+        <div class="record-box">
+          💡 <strong>원칙 준수 분석</strong>: 불확실성을 인정하고 실적 선두주자에 확률 배팅 $\rightarrow$ 장기 맹신 배제 및 <strong>원금 회수 후 순수 수익금으로만 무위험 운용</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: 투자 예외 사례 (Exceptions) -->
+    <section id="tab-exceptions" class="tab-section">
+      <div class="section-header">
+        <div class="section-title">⚠️ 투자 예외 사례 페이지 (Exceptions)</div>
+      </div>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">
+        기존 투자 원칙과 상충되나, 원칙을 전면 변경하지 않고 특수하게 별도 관리하는 예외 사례 목록입니다.
+      </p>
+
+      <div class="empty-state">
+        <span class="icon">🔍</span>
+        <strong>현재 등록된 투자 예외 사례가 없습니다.</strong>
+        <p style="margin-top:4px; font-size:0.75rem;">새로운 예외 매매 발생 시 본 페이지에 독립적으로 아카이빙됩니다.</p>
+      </div>
+    </section>
+
+    <!-- PAGE 5: 투자 로그 (History & Changes) -->
+    <section id="tab-logs" class="tab-section">
+      <div class="section-header">
+        <div class="section-title">📜 투자 로그 페이지 (Change History)</div>
+      </div>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">
+        새로운 복기 및 시장 변화로 인해 투자 원칙이나 방식이 공식 변경된 이력을 기록하는 아카이브입니다.
+      </p>
+
+      <!-- Initial Setup Log -->
+      <div class="record-card" style="border-left: 4px solid var(--primary);">
+        <div class="record-head">
+          <div class="record-title">📜 Log #001: 투자 원칙 전면 재정립 & 시스템 구축</div>
+          <span class="record-date">2026-09-16</span>
+        </div>
+        <div class="record-body">
+          <strong>변경 사유</strong>: 불필요한 고정 공식(미국 50%, 상시 현금 30%, PBR 0.8 룰 등)을 전면 폐기하고, 현금 확보와 격전지 이탈 중심의 4대 핵심 룰로 개편.
+        </div>
+        <div class="record-box">
+          ✓ 4대 원칙 확립: 극단적 현금 확보 / 격전지 이탈 / MACD 보조 도구화 / +200% 원금회수<br>
+          ✓ 거버넌스 규정집 [투자 판단 시스템.md] 및 전용 페이지 체계 가동
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <!-- Bottom Navigation -->
+  <!-- Bottom Navigation (5 Tabs) -->
   <nav class="bottom-nav">
     <button class="nav-tab active" onclick="switchTab('rules', this)">
       <span class="icon">🏛️</span>
@@ -601,6 +652,18 @@
     <button class="nav-tab" onclick="switchTab('check', this)">
       <span class="icon">🎯</span>
       <span>체크리스트</span>
+    </button>
+    <button class="nav-tab" onclick="switchTab('cases', this)">
+      <span class="icon">📚</span>
+      <span>사례</span>
+    </button>
+    <button class="nav-tab" onclick="switchTab('exceptions', this)">
+      <span class="icon">⚠️</span>
+      <span>예외</span>
+    </button>
+    <button class="nav-tab" onclick="switchTab('logs', this)">
+      <span class="icon">📜</span>
+      <span>로그</span>
     </button>
   </nav>
 
