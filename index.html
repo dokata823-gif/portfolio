@@ -117,7 +117,7 @@
       color: #ffffff;
       border-radius: var(--radius-md);
       padding: 18px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       box-shadow: var(--shadow);
     }
 
@@ -149,6 +149,63 @@
       padding: 3px 8px;
       border-radius: 12px;
       font-weight: 600;
+    }
+
+    /* Today's Review Card */
+    .today-review-card {
+      background: var(--surface);
+      border: 1px solid var(--primary);
+      border-left: 5px solid var(--primary);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .today-review-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .today-review-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .today-review-date {
+      font-size: 0.72rem;
+      color: var(--primary);
+      font-weight: 700;
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .today-review-content {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .today-review-summary {
+      background: var(--surface-card);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .today-review-summary strong {
+      color: var(--accent-success);
     }
 
     .tab-section {
@@ -396,6 +453,27 @@
         <span class="tag">#차트맹신금지</span>
         <span class="tag">#-40%-60%물타기</span>
         <span class="tag">#원금회수</span>
+      </div>
+    </div>
+
+    <!-- Today's Review Card -->
+    <div class="today-review-card">
+      <div class="today-review-head">
+        <div class="today-review-title">
+          <span>📝</span>
+          <span>오늘의 복기 (양자컴퓨팅 / IonQ·IBM)</span>
+        </div>
+        <span class="today-review-date">2026-09-16</span>
+      </div>
+      <div class="today-review-content">
+        투자를 다 알고 하지는 않는다. 현재 알고 있는 사항에 맞춰서 하는 것도 있지만, 모든 걸 고려한다고 해서 모든 사항이 대비되지는 않는다. 
+        <br><br>
+        결론은 <strong>IonQ</strong>에 투자할지 <strong>IBM</strong>에 투자할지 모르지만, 확률적으로 다양한 양자컴퓨터 회사 중에서 <strong>선두주자로 일단 치고 나가는 상황이고 실제 매출을 내고 있기 때문에</strong> 투자를 한 것이다.
+        <br><br>
+        장기로 끌고 가기보다는 <strong>원금 회수를 1차 목표</strong>로 하고, 상황이 바뀐다면 추가 투자를 고려하겠지만 <strong>원금 회수 이후에는 수익금에서만 운용</strong>할 계획이다.
+      </div>
+      <div class="today-review-summary">
+        💡 <strong>핵심 수칙</strong>: 불확실성을 인정하고 실적 선두주자에 확률 배팅 $\rightarrow$ 장기 집착 대신 <strong>원금 회수 후 순수 수익금으로만 무위험 운용</strong>.
       </div>
     </div>
 
