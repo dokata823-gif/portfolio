@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>리스크 관리 & 포트폴리오 운용 지침서 | Investment Strategy Playbook</title>
+  <title>실전 투자 판단 시스템 | Investment Playbook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,14 +11,14 @@
     :root {
       --primary: #2563eb;
       --primary-dark: #1d4ed8;
-      --primary-light: #eff6ff;
-      --accent-danger: #dc2626;
-      --accent-danger-bg: #fef2f2;
-      --accent-warning: #d97706;
-      --accent-warning-bg: #fffbeb;
-      --accent-success: #059669;
-      --accent-success-bg: #ecfdf5;
-      --bg: #0b1120;
+      --primary-light: #dbeafe;
+      --accent-danger: #ef4444;
+      --accent-danger-bg: #fee2e2;
+      --accent-warning: #f59e0b;
+      --accent-warning-bg: #fef3c7;
+      --accent-success: #10b981;
+      --accent-success-bg: #d1fae5;
+      --bg: #0f172a;
       --surface: #1e293b;
       --surface-card: #334155;
       --text: #f8fafc;
@@ -31,13 +31,13 @@
     }
 
     [data-theme="light"] {
-      --bg: #f8fafc;
+      --bg: #f1f5f9;
       --surface: #ffffff;
-      --surface-card: #f1f5f9;
+      --surface-card: #f8fafc;
       --text: #0f172a;
       --text-muted: #64748b;
       --border: #e2e8f0;
-      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
       --primary-light: #eff6ff;
     }
 
@@ -52,7 +52,7 @@
     body {
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.5;
       padding-bottom: 90px;
       min-height: 100vh;
       transition: background-color 0.2s ease, color 0.2s ease;
@@ -62,30 +62,32 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(15, 23, 42, 0.88);
+      background: rgba(30, 41, 59, 0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 14px 20px;
+      padding: 12px 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     [data-theme="light"] header {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.85);
     }
 
     .logo-box h1 {
       font-size: 1.05rem;
       font-weight: 800;
       letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .logo-box p {
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
-      font-weight: 500;
     }
 
     .header-actions {
@@ -102,45 +104,40 @@
       font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s;
     }
 
     .app-container {
-      max-width: 560px;
+      max-width: 540px;
       margin: 0 auto;
-      padding: 18px 16px;
+      padding: 16px;
     }
 
-    .summary-card {
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      border: 1px solid var(--border);
+    .banner-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: #ffffff;
       border-radius: var(--radius-md);
       padding: 18px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       box-shadow: var(--shadow);
     }
 
-    [data-theme="light"] .summary-card {
-      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    }
-
-    .summary-subtitle {
-      font-size: 0.72rem;
+    .banner-title {
+      font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--primary);
+      letter-spacing: 0.8px;
+      opacity: 0.9;
       margin-bottom: 6px;
     }
 
-    .summary-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 12px;
+    .banner-quote {
+      font-size: 0.98rem;
+      font-weight: 800;
+      line-height: 1.45;
+      margin-bottom: 10px;
     }
 
-    .summary-tags {
+    .banner-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
@@ -148,17 +145,15 @@
 
     .tag {
       font-size: 0.7rem;
-      background: var(--surface-card);
-      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.2);
       padding: 3px 8px;
-      border-radius: 6px;
+      border-radius: 12px;
       font-weight: 600;
-      border: 1px solid var(--border);
     }
 
     .tab-section {
       display: none;
-      animation: fadeIn 0.2s ease forwards;
+      animation: fadeIn 0.25s ease forwards;
     }
 
     .tab-section.active {
@@ -166,121 +161,117 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .section-header {
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: -0.3px;
-    }
-
-    .section-desc {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    .framework-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 18px;
-      margin-bottom: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .framework-card.border-accent-primary { border-top: 3px solid var(--primary); }
-    .framework-card.border-accent-danger { border-top: 3px solid var(--accent-danger); }
-    .framework-card.border-accent-warning { border-top: 3px solid var(--accent-warning); }
-    .framework-card.border-accent-success { border-top: 3px solid var(--accent-success); }
-
-    .card-header-flex {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
+      margin-top: 6px;
     }
 
-    .card-heading {
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .rule-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .rule-card.highlight-danger { border-left: 4px solid var(--accent-danger); }
+    .rule-card.highlight-warning { border-left: 4px solid var(--accent-warning); }
+    .rule-card.highlight-success { border-left: 4px solid var(--accent-success); }
+    .rule-card.highlight-primary { border-left: 4px solid var(--primary); }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
       font-size: 0.95rem;
       font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .badge {
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       font-weight: 700;
       padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.3px;
+      border-radius: 6px;
     }
 
-    .badge-primary { background: var(--primary-light); color: var(--primary); }
     .badge-danger { background: var(--accent-danger-bg); color: var(--accent-danger); }
-    .badge-warning { background: var(--accent-warning-bg); color: var(--accent-warning); }
-    .badge-success { background: var(--accent-success-bg); color: var(--accent-success); }
+    .badge-warning { background: var(--accent-warning-bg); color: #d97706; }
+    .badge-success { background: var(--accent-success-bg); color: #059669; }
+    .badge-primary { background: var(--primary-light); color: var(--primary); }
 
-    .clause-list {
+    .rule-list {
       list-style: none;
     }
 
-    .clause-list li {
+    .rule-list li {
       position: relative;
       padding-left: 18px;
-      margin-bottom: 10px;
-      font-size: 0.86rem;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
       color: var(--text);
-      line-height: 1.55;
     }
 
-    .clause-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .clause-list li::before {
-      content: "—";
+    .rule-list li::before {
+      content: "•";
       position: absolute;
-      left: 0;
-      color: var(--text-muted);
-      font-weight: 600;
+      left: 4px;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1;
     }
 
-    .clause-list strong {
-      color: var(--text);
-      font-weight: 700;
-    }
+    .rule-list li.warn::before { color: var(--accent-danger); }
+    .rule-list li.strong { font-weight: 600; }
 
-    /* Checklist */
-    .checklist-item {
+    /* Interactive Checklist */
+    .check-item {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      padding: 14px;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      padding: 12px;
+      background: var(--surface-card);
       border-radius: var(--radius-sm);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       cursor: pointer;
       user-select: none;
-      transition: background 0.15s ease, border-color 0.15s ease;
+      transition: background 0.15s ease;
     }
 
-    .checklist-item:hover {
-      background: var(--surface-card);
+    .check-item:active {
+      transform: scale(0.99);
     }
 
-    .checklist-item input[type="checkbox"] {
+    .check-item input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       border: 2px solid var(--border);
-      border-radius: 4px;
+      border-radius: 6px;
       margin-top: 2px;
       flex-shrink: 0;
       display: grid;
@@ -290,45 +281,30 @@
       transition: all 0.2s ease;
     }
 
-    .checklist-item input[type="checkbox"]:checked {
+    .check-item input[type="checkbox"]:checked {
       background: var(--accent-success);
       border-color: var(--accent-success);
     }
 
-    .checklist-item input[type="checkbox"]:checked::before {
+    .check-item input[type="checkbox"]:checked::before {
       content: "✓";
       color: white;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 900;
     }
 
-    .checklist-text {
+    .check-text {
       font-size: 0.85rem;
-      line-height: 1.5;
+      line-height: 1.4;
       flex-grow: 1;
     }
 
-    .checklist-title {
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
-
-    .checklist-desc {
-      font-size: 0.8rem;
+    .check-item.done .check-text {
       color: var(--text-muted);
-    }
-
-    .checklist-item.checked {
-      opacity: 0.65;
-      background: var(--surface-card);
-    }
-
-    .checklist-item.checked .checklist-title {
       text-decoration: line-through;
     }
 
-    .btn-secondary {
+    .btn-action {
       display: block;
       width: 100%;
       padding: 12px;
@@ -336,15 +312,14 @@
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 700;
       cursor: pointer;
       text-align: center;
-      margin-top: 14px;
-      transition: background 0.2s;
+      margin-top: 12px;
     }
 
-    .btn-secondary:hover {
+    .btn-action:active {
       background: var(--border);
     }
 
@@ -355,19 +330,19 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(15, 23, 42, 0.94);
+      background: rgba(30, 41, 59, 0.92);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-around;
-      padding: 10px 8px;
-      max-width: 560px;
+      padding: 8px 6px;
+      max-width: 540px;
       margin: 0 auto;
     }
 
     [data-theme="light"] nav.bottom-nav {
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.92);
     }
 
     .nav-tab {
@@ -378,22 +353,22 @@
       flex-direction: column;
       align-items: center;
       gap: 3px;
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       font-weight: 600;
       cursor: pointer;
-      padding: 4px 16px;
+      padding: 6px 20px;
       border-radius: 8px;
-      transition: color 0.15s ease;
+      transition: all 0.2s ease;
       width: 48%;
     }
 
     .nav-tab.active {
       color: var(--primary);
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    .nav-tab .nav-icon {
-      font-size: 1.1rem;
+    .nav-tab .icon {
+      font-size: 1.2rem;
     }
   </style>
 </head>
@@ -402,185 +377,184 @@
   <!-- Header -->
   <header>
     <div class="logo-box">
-      <h1>포트폴리오 운용 & 리스크 관리 지침</h1>
-      <p>Systematic Capital Allocation & Risk Governance</p>
+      <h1>🏛️ 실전 투자 판단 시스템</h1>
+      <p>현금 확보 중심 & 원칙 준수 프레임워크</p>
     </div>
     <div class="header-actions">
-      <button class="theme-toggle-btn" onclick="toggleTheme()">테마 전환</button>
+      <button class="theme-toggle-btn" onclick="toggleTheme()">🌓 테마</button>
     </div>
   </header>
 
   <div class="app-container">
-
-    <!-- Executive Summary Card -->
-    <div class="summary-card">
-      <div class="summary-subtitle">운용 대원칙 (Core Principle)</div>
-      <div class="summary-title">
-        "포트폴리오 운용의 본질은 자본 보존과 유동성 확보에 있다. 군집화된 과열 시장을 회피하고, 기술적 지표는 가격의 절대적 고평가·저평가 판별에 한하여 보조적으로 적용한다."
-      </div>
-      <div class="summary-tags">
-        <span class="tag">유동성 중심</span>
-        <span class="tag">과열 섹터 이탈</span>
-        <span class="tag">단계적 리스크 오프</span>
-        <span class="tag">구조적 가격대 집행</span>
+    <!-- Philosophy Banner -->
+    <div class="banner-card">
+      <div class="banner-title">Core Philosophy</div>
+      <div class="banner-quote">"투자의 전체 흐름은 현금 확보이다. 격전지에서는 빠져나오고, 차트는 비싼가 싼가만 보라."</div>
+      <div class="banner-tags">
+        <span class="tag">#현금확보전념</span>
+        <span class="tag">#격전지탈출</span>
+        <span class="tag">#차트맹신금지</span>
+        <span class="tag">#-40%-60%물타기</span>
+        <span class="tag">#원금회수</span>
       </div>
     </div>
 
-    <!-- TAB 1: Core Framework -->
-    <section id="tab-framework" class="tab-section active">
+    <!-- TAB 1: 실전 투자 룰 엔진 -->
+    <section id="tab-rules" class="tab-section active">
       <div class="section-header">
-        <div class="section-title">포트폴리오 운용 프레임워크</div>
-        <div class="section-desc">체계적 자산 배분과 비대칭 리스크 관리를 위한 4대 운용 규정</div>
+        <div class="section-title">⚡ 4대 핵심 투자 룰 엔진</div>
       </div>
 
-      <!-- Rule 1 -->
-      <div class="framework-card border-accent-success">
-        <div class="card-header-flex">
-          <div class="card-heading">1. 자본 보존 및 유동성 회수 대원칙</div>
-          <span class="badge badge-success">Capital Preservation</span>
+      <!-- Rule 1: 현금 확보 대원칙 -->
+      <div class="rule-card highlight-success">
+        <div class="card-head">
+          <div class="card-title">1. 투자의 대원칙: 극단적 현금 확보</div>
+          <span class="badge badge-success">핵심 원칙</span>
         </div>
-        <ul class="clause-list">
-          <li><strong>포트폴리오 운용의 본질</strong>: 주식의 단순 장기 보유가 목적이 아니며, 시장의 왜곡된 기회에서 알파를 실현하고 <strong>현금 유동성을 극대화하여 회수</strong>하는 데 목적을 둡니다.</li>
-          <li><strong>기계적 원금 회수 및 투자금액 상한 고정</strong>: 목표 수익률 달성 시 원금 전액을 회수하거나 투자 원금을 고정 매도하여 리스크 익스포저를 원천 차단합니다.</li>
-          <li><strong>임의적 추가 매수 금지</strong>: 단기 잔파동에서의 유동성 소진을 철저히 배제하고, <strong>진입 평균단가 대비 -40%, -60% 폭락 등 구조적 과매도 구간</strong>에서만 기계적 추가 배분을 집행합니다.</li>
+        <ul class="rule-list">
+          <li class="strong"><strong>투자의 궁극적 흐름</strong>: 주식 보유 자체가 목적이 아니며, 기회에서 이익을 취하고 <strong>현금을 극대화하여 회수</strong>하는 과정이다.</li>
+          <li class="strong"><strong>원금 회수 및 총액 고정 매도</strong>: 수익이 나면 기계적으로 원금 회수 및 투자금액 고정 매도를 진행하여 현금화에 전념.</li>
+          <li class="warn"><strong>현금 소진 극단적 제한</strong>: 잔파동에서는 현금을 쓰지 않고, <strong>내 평단 대비 -40%, -60% 폭락에만</strong> 기계적 추가 매수를 집행한다.</li>
         </ul>
       </div>
 
-      <!-- Rule 2 -->
-      <div class="framework-card border-accent-danger">
-        <div class="card-header-flex">
-          <div class="card-heading">2. 과열 군집 시장 이탈 및 신규 트렌드 탐색</div>
-          <span class="badge badge-danger">Exit Crowded Trades</span>
+      <!-- Rule 2: 격전지 탈출 -->
+      <div class="rule-card highlight-danger">
+        <div class="card-head">
+          <div class="card-title">2. 격전지 이탈 & 새로운 트렌드 탐색</div>
+          <span class="badge badge-danger">확률의 법칙</span>
         </div>
-        <ul class="clause-list">
-          <li><strong>군집화된 격전지 이탈</strong>: 대중적 논쟁이 과열되었거나 추가 상승에 대한 시장의 기대가 일방적으로 집중된 섹터는 즉시 비중을 축소합니다.</li>
-          <li><strong>새로운 확률 분포 탐색</strong>: 이미 역사적 대시세를 분출한 주도 섹터(예: 반도체)에서 연속된 초과 수익을 기대하기보다, <strong>아직 시세가 시작되지 않은 차기 구조적 트렌드를 발굴하는 것이 통계적으로 우월</strong>합니다.</li>
-          <li><strong>과열 자산 익스포저 최소화</strong>: 시장의 관심이 포화 상태에 이른 자산군은 비중을 극단적으로 축소하여 하방 리스크를 통제합니다.</li>
+        <ul class="rule-list">
+          <li class="strong"><strong>격전지 즉시 이탈</strong>: 많은 이들의 논란이 있거나, 모두가 다음 상승을 기다리는 곳에서는 나와라.</li>
+          <li class="strong"><strong>이미 역사적 대시세를 낸 곳(반도체 등)</strong>: 또 한 번의 큰 상승을 바라는 것보다 <strong>새로운 트렌드를 찾는 것이 확률적으로 훨씬 높다</strong>.</li>
+          <li class="warn"><strong>비중 극단 축소</strong>: 대중의 시선이 과도하게 쏠린 격전지는 비중을 극단적으로 줄여라.</li>
         </ul>
       </div>
 
-      <!-- Rule 3 -->
-      <div class="framework-card border-accent-primary">
-        <div class="card-header-flex">
-          <div class="card-heading">3. 기술적 분석 및 MACD의 보조적 거버넌스</div>
-          <span class="badge badge-primary">Technical Governance</span>
+      <!-- Rule 3: 차트 & MACD의 정의 -->
+      <div class="rule-card highlight-primary">
+        <div class="card-head">
+          <div class="card-title">3. 차트 & MACD의 올바른 활용 한계</div>
+          <span class="badge badge-primary">보조 도구</span>
         </div>
-        <ul class="clause-list">
-          <li><strong>기술적 지표의 판단 종속 금지</strong>: 차트와 주가 지수를 포트폴리오 진입 및 배분의 독립적 판단 근거로 삼지 않습니다.</li>
-          <li><strong>MACD의 엄격한 2대 제한적 용도</strong>:
-            <br>① 시장 거시 지수 레버리지 포지션의 방향성 판단 보조
-            <br>② <strong>산업 트렌드, 거시 테마, 비즈니스 모델의 펀더멘털이 검증된 종목에 한하여</strong> 현재 가격의 '고평가(과열) / 저평가' 구간을 계측하는 용도</li>
-          <li><strong>차트의 본래 목적</strong>: 테마 형성 이후 바닥권 대비 현재 주가의 누적 상승폭(상승 피로도)을 객관적으로 측정하는 데 한정합니다.</li>
+        <ul class="rule-list">
+          <li class="warn">❌ <strong>차트/지수를 절대적 투자 판단 기준으로 삼지 않는다.</strong></li>
+          <li class="strong"><strong>MACD의 2대 활용처</strong>:
+            <br>① <strong>지수 레버리지 판단</strong> 보조용
+            <br>② <strong>트렌드·테마·비즈니스 모델이 확실한 종목에 한해</strong> 현재 가격이 "비싼가(과열) / 싼가" 판단용</li>
+          <li><strong>차트의 본래 목적</strong>: 테마에 따라 현재 주가가 바닥에서 얼마나 올라왔는지(상승 피로도) 확인하는 용도로만 한정.</li>
         </ul>
       </div>
 
-      <!-- Rule 4 -->
-      <div class="framework-card border-accent-warning">
-        <div class="card-header-flex">
-          <div class="card-heading">4. 누적 대시세 분출 후의 포지션 관리</div>
-          <span class="badge badge-warning">Momentum Governance</span>
+      <!-- Rule 4: +200% 시세 후 대응 -->
+      <div class="rule-card highlight-warning">
+        <div class="card-head">
+          <div class="card-title">4. +200% 대시세 분출 후의 대응</div>
+          <span class="badge badge-warning">모멘텀 관리</span>
         </div>
-        <ul class="clause-list">
-          <li><strong>모멘텀 둔화 인지</strong>: MACD 기준 진입 시점 대비 주가가 +200% 이상 크게 상승한 자산은 추세 모멘텀의 감소 가능성을 인지하고 방어 태세로 전환합니다.</li>
-          <li><strong>경계 국면 식별 (무조건적 전량 청산 지양)</strong>: 강력한 산업 트렌드가 유지되는 경우 무조건 청산하기보다 리스크 관리를 최우선 순위로 격상합니다.</li>
-          <li><strong>무위험 포지션 전환</strong>: 원금 전액을 선제 회수하고 투자금액 고정 매도를 통해 유동성을 확보한 후, 순수 누적 수익금만으로 잔여 추세를 추종합니다.</li>
+        <ul class="rule-list">
+          <li class="strong"><strong>모멘텀 둔화 인지</strong>: MACD 매수 시점 대비 +200% 이상 크게 올라간 종목은 모멘텀이 줄어들 수 있음을 인지.</li>
+          <li><strong>주의 단계 (무조건 매도 X)</strong>: 트렌드가 강하더라도 각별한 주의가 필요한 것이지 파는 것은 아니다.</li>
+          <li class="strong"><strong>원금 회수 후 무위험 관망</strong>: 원금을 전액 회수하고 총액 고정 매도로 현금을 확보한 뒤 남은 물량만 지켜본다.</li>
         </ul>
       </div>
     </section>
 
-    <!-- TAB 2: Pre-Trade Checklist -->
-    <section id="tab-checklist" class="tab-section">
+    <!-- TAB 2: 실전 자가 점검 체크리스트 -->
+    <section id="tab-check" class="tab-section">
       <div class="section-header">
-        <div class="section-title">매매 집행 사전 점검표</div>
-        <div class="section-desc">주문 집행 전 비체계적 위험 및 심리적 편향을 제거하기 위한 5단계 체크리스트</div>
+        <div class="section-title">🎯 실전 매매 즉시 자가 점검표</div>
       </div>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">
+        매수/매도 버튼을 누르기 전 30초만 스스로에게 질문하십시오.
+      </p>
 
-      <div class="checklist-item" onclick="toggleItem(this)">
-        <input type="checkbox">
-        <div class="checklist-text">
-          <div class="checklist-title">1. 군집화된 과열 시장(격전지) 여부 검증</div>
-          <div class="checklist-desc">시장 참여자들의 컨센서스가 극도로 쏠려 있으며 일방적 낙관론이 형성된 섹터인가? (해당 시 포지션 축소 집행)</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <input type="checkbox" id="c1">
+        <div class="check-text">
+          <strong>1. [격전지 탈출]</strong><br>
+          대중의 논란이 뜨겁고 모두가 상승을 기다리는 격전지인가? (그렇다면 비중을 극단적으로 줄여라)
         </div>
       </div>
 
-      <div class="checklist-item" onclick="toggleItem(this)">
-        <input type="checkbox">
-        <div class="checklist-text">
-          <div class="checklist-title">2. 차기 구조적 트렌드 발굴 여부</div>
-          <div class="checklist-desc">이미 역사적 시세 분출을 완료한 섹터에 대한 미련을 배제하고, 새로운 성장 궤적을 그리는 비대칭 기회에 주목하고 있는가?</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <input type="checkbox" id="c2">
+        <div class="check-text">
+          <strong>2. [새로운 확률 탐색]</strong><br>
+          이미 역사적 대시세를 낸 종목(반도체 등)에 집착하지 않고, 새로운 트렌드를 찾고 있는가?
         </div>
       </div>
 
-      <div class="checklist-item" onclick="toggleItem(this)">
-        <input type="checkbox">
-        <div class="checklist-text">
-          <div class="checklist-title">3. 기술적 지표의 보조적 위상 준수</div>
-          <div class="checklist-desc">차트 신호에 매몰되지 않고, 비즈니스 모델의 지속가능성 위에서 단순 가격 위치(고평가/저평가) 판별용으로만 한정하고 있는가?</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <input type="checkbox" id="c3">
+        <div class="check-text">
+          <strong>3. [차트 맹신 금지 & 가격 위치 확인]</strong><br>
+          차트 신호에 휘둘리지 않고, 트렌드 확실성 하에서 현재 주가가 비싼가 싼가를 확인하는 용도로만 쓰고 있는가?
         </div>
       </div>
 
-      <div class="checklist-item" onclick="toggleItem(this)">
-        <input type="checkbox">
-        <div class="checklist-text">
-          <div class="checklist-title">4. 유동성 보존 및 기계적 추가 매수 원칙</div>
-          <div class="checklist-desc">단기 변동성(잔파동)에서 조급하게 유동성을 소진하지 않고, 평균단가 대비 -40%, -60% 구간까지 인내심을 유지하고 있는가?</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <input type="checkbox" id="c4">
+        <div class="check-text">
+          <strong>4. [현금 보존 & -40%/-60% 룰]</strong><br>
+          평단 대비 -40%, -60% 도달 전 잔파동에서 조급하게 현금을 낭비하고 있지 않은가?
         </div>
       </div>
 
-      <div class="checklist-item" onclick="toggleItem(this)">
-        <input type="checkbox">
-        <div class="checklist-text">
-          <div class="checklist-title">5. 원금 회수 및 리스크 오프 집행 여부</div>
-          <div class="checklist-desc">+200% 이상 상승 자산에 대해 모멘텀 둔화를 경계하고, 원금 회수 및 고정 매도를 통해 계좌를 무위험 상태로 전환하였는가?</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <input type="checkbox" id="c5">
+        <div class="check-text">
+          <strong>5. [원금 회수 & 현금 확보 전념]</strong><br>
+          +200% 상승 시 모멘텀 둔화를 경계하고, 원금 회수 및 총액 고정 매도를 통해 현금을 회수했는가?
         </div>
       </div>
 
-      <button class="btn-secondary" onclick="resetChecklist()">체크리스트 상태 초기화</button>
+      <button class="btn-action" onclick="resetChecks()">체크리스트 초기화</button>
     </section>
 
   </div>
 
   <!-- Bottom Navigation -->
   <nav class="bottom-nav">
-    <button class="nav-tab active" onclick="switchNav('framework', this)">
-      <span class="nav-icon">📘</span>
-      <span>운용 원칙</span>
+    <button class="nav-tab active" onclick="switchTab('rules', this)">
+      <span class="icon">🏛️</span>
+      <span>투자 룰</span>
     </button>
-    <button class="nav-tab" onclick="switchNav('checklist', this)">
-      <span class="nav-icon">📋</span>
-      <span>사전 점검표</span>
+    <button class="nav-tab" onclick="switchTab('check', this)">
+      <span class="icon">🎯</span>
+      <span>체크리스트</span>
     </button>
   </nav>
 
   <script>
-    function switchNav(tabName, btn) {
-      document.querySelectorAll('.tab-section').forEach(sec => sec.classList.remove('active'));
+    function switchTab(tabId, el) {
+      document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
       document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
-      document.getElementById('tab-' + tabName).classList.add('active');
-      btn.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+      el.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function toggleTheme() {
       const body = document.body;
-      const currentTheme = body.getAttribute('data-theme');
-      const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', targetTheme);
+      const current = body.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', next);
     }
 
-    function toggleItem(card) {
+    function toggleCheck(card) {
       const cb = card.querySelector('input[type="checkbox"]');
       cb.checked = !cb.checked;
       if (cb.checked) {
-        card.classList.add('checked');
+        card.classList.add('done');
       } else {
-        card.classList.remove('checked');
+        card.classList.remove('done');
       }
     }
 
-    function resetChecklist() {
-      document.querySelectorAll('.checklist-item').forEach(item => {
-        item.classList.remove('checked');
+    function resetChecks() {
+      document.querySelectorAll('.check-item').forEach(item => {
+        item.classList.remove('done');
         item.querySelector('input[type="checkbox"]').checked = false;
       });
     }
